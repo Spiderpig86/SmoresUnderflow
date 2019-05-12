@@ -1,0 +1,25 @@
+.vote-btn {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0.5rem;
+    transition: 0.1s ease;
+    width: 56px;
+}
+
+.vote-btn img {
+    width: 12px;
+    height: 12px;
+}
+
+.vote-btn.voted, .vote-btn:hover {
+    background-color: rgba(50,100,250,.05);
+    transition: 0.1s ease;
+}
+
+.vote-btn:active {
+    background-color: rgba(50,100,250,.1);
+    box-shadow: 0 0 0 2px rgba(50,100,250,.1);
+    transition: 0.1s ease;
+}

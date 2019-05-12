@@ -1,0 +1,17 @@
+.tag {
+    background-color: #e9f3ff;
+    border-color: #e9f3ff;
+    color: #0e83ff;
+    cursor: pointer;
+    font-weight: 400;
+    margin: 0.05rem .25rem;
+    padding: .5rem;
+    transition: all .2s;
+}
+
+.tag:hover {
+    background-color: #dbe8f7;
+    border-color: #dbe8f7;
+    color: #0e83ff;
+    transition: all .2s;
+}

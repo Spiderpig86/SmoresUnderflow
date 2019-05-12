@@ -1,0 +1,30 @@
+---
+- name: cloud instance setup
+  hosts: all
+  gather_facts: yes
+
+  tasks:
+    -
+      apt:
+        name: ["htop", "figlet"]
+        state: present
+        update_cache: true
+      become: true
+      name: "Install basics"
+    -
+      name: "Add server name banner for shell sign-ins"
+      become: true
+      shell: "figlet -f small `hostname | sed -e 's/\\b\\(.\\)/\\u\\1/g'` > /etc/motd"
+
+
+    - 
+      name: "Allow SSH access to other machines from config server" # Don't use become or else it copies files to root dir
+      copy:
+        src: ~/.ssh/id_rsa
+        dest: ~/.ssh/id_rsa
+        owner: ubuntu
+        group: ubuntu
+        mode: 0600
+
+- import_playbook: instances.yml
+- import_playbook: cache.yml

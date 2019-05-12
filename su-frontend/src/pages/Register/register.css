@@ -1,0 +1,17 @@
+.Register {
+    background-color: #eee;
+}
+
+.Register .container {
+    background-color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 20px 48px rgba(0,0,0,0.05), 0 1px 4px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+}
+
+.Register .container {
+    max-width: 650px;
+}
+
+.logo {
+    max-height: 75px;
+}

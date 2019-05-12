@@ -1,0 +1,56 @@
+- name: search microservice
+  hosts: cloud
+  gather_facts: no
+  vars:
+    svr: 'search'
+    gitlab: 'git@gitlab.com:derivatives_/smores-underflow.git'
+    home_dir: '/home/ubuntu'
+    proj_path: '{{ home_dir }}/smores-underflow/su-{{ svr }}'
+    # svr_path: '{{ proj_path }}/dist/server.js'
+    nginx_path: '{{ proj_path }}/config/nginx.config'
+
+  tasks:
+    # install nodejs
+    # - name: install node 
+    #   shell: |
+    #     curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash - && sudo apt-get install -y nodejs
+    #   become: yes
+    
+    # install nginx 
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=present
+      when: nginx_stat.stat.exists == False
+      become: yes
+      
+    #copy repo
+    - name: clone repo
+      git:
+        repo: '{{ gitlab }}'
+        dest: '{{ home_dir }}/smores-underflow/'
+        accept_hostkey: yes
+        key_file: ~/.ssh/deploy
+      become: yes
+
+
+    - name: copy the nginx config
+      copy:
+        src: '{{ nginx_path }}'
+        dest: /etc/nginx/sites-available/default
+        remote_src: true
+      become: yes
+
+    - name: enable config file
+      copy:
+        src: /etc/nginx/sites-available/default
+        dest: /etc/nginx/sites-enabled/default
+        remote_src: true
+      become: yes
+
+    # install pm2
+    - name: install pm2
+      apt: 
+        name: pm2
+        state: present
+      environment:
+        RUNLEVEL: 1
+

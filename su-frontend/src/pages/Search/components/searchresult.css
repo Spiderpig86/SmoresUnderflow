@@ -1,0 +1,35 @@
+.search-result {
+    color: #222;
+    white-space: nowrap;
+    word-break: break-word;
+}
+
+.search-result:hover {
+    text-decoration: none;
+}
+
+.card-text {
+    white-space: normal;
+}
+
+.card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 512px) {
+    .result-container {
+        display: block;
+        margin: 0;
+    }
+
+    .result-container > div {
+        margin-bottom: 1rem;
+    }
+
+    .result-container .row,
+    .row [class*="col-"] {
+        flex: 100%;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,83 @@
+---
+
+- name: account microservice
+  hosts: hw1
+  gather_facts: yes
+  vars:
+    svr: 'search'
+    gitlab: ''
+    home_dir: '/home/ubuntu'
+    svr.js_path: '{{ home_dir }}/smores-underflow/su-{{ svr }}/dist/server.js'
+
+  tasks:
+    #copy repo
+    - name: clone repo
+      git:
+        repo: {{ gitlab }}
+        dest: /home/ubuntu/hw0/
+      become: yes
+
+    # install nginx 
+    - name: ensure nginx is at the latest version
+      apt: name=nginx state=present
+      when: nginx_stat.stat.exists == False
+      become: yes
+
+    - name: copy the nginx config
+      copy:
+        src: /home/ubuntu/hw0/ngconfig.cfg
+        dest: /etc/nginx/sites-available/default
+        remote_src: true
+      become: yes
+
+    - name: enable config file
+      copy:
+        src: /etc/nginx/sites-available/default
+        dest: /etc/nginx/sites-enabled/default
+        remote_src: true
+      become: yes
+
+    # install pm2
+    - name: install pm2
+      apt: 
+        name: pm2
+        state: present
+      environment:
+        RUNLEVEL: 1
+
+    # install nodejs
+    - name: install node 
+      shell: |
+        curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash - && sudo apt-get install -y nodejs
+      become: yes
+    
+    # install forever
+    - name: install forever
+      npm: name=forever global=yes state=present
+
+    - name: "check list of Node.js apps running."
+      command: forever list
+      register: forever_list
+      changed_when: false
+
+    - name: start server
+      command: forever start {{ svr.js_path }}
+      when: "forever_list.stdout.find('{{ svr.js_path }}') == -1"
+      become: yes
+
+    - name: delete existing pm2 processes if running
+      command: "pm2 delete {{ svr }}"
+      ignore_errors: True
+      become: yes
+
+
+    - name: start pm2 process
+      command: 'pm2 start -x -i 4 --name "{{ svr }}" --watch {{ svr.js_path }}'
+      become: yes
+      
+    #start nginx
+    - name: Start NGiNX
+      service:
+        name: nginx
+        state: started
+

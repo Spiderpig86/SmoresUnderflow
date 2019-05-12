@@ -1,0 +1,33 @@
+.container-shadow {
+    align-items: end;
+    box-shadow: 0 0.2rem 1.25rem 0 rgba(27, 30, 36, 0.07);
+}
+
+.post-container {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: .25rem;
+    margin-bottom: 1rem;
+}
+
+.post-container-body {
+    padding: 1rem;
+}
+
+.container-accepted {
+    border: 2px solid #44ac18;
+}
+
+.accepted-answer-label {
+    background-color: #45ac182c;
+    color: #44ac18;
+    font-weight: 400;
+    padding: 1rem;
+}
+
+pre {
+    background-color: #f3f6fa;
+    border-radius: .25rem;
+    overflow: auto;
+    padding: 1rem;
+}

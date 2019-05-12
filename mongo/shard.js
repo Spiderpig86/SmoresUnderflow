@@ -1,0 +1,5 @@
+sh.enableSharding("underflow")
+sh.shardCollection("underflow.questions", { "_id": "hashed" } )
+sh.shardCollection("underflow.answers", { "_id": "hashed" } )
+sh.shardCollection("underflow.users", { "_id": "hashed" } )
+sh.shardCollection("underflow.media", { "_id": "hashed" } )

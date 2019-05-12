@@ -1,0 +1,4 @@
+---
+- name: Redis setup
+  hosts: cache
+  gather_facts: yes

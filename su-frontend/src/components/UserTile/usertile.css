@@ -1,0 +1,26 @@
+.user-tile {
+    border: 1px solid #eee;
+    box-shadow: 0 0.2rem 1.25rem 0 rgba(27, 30, 36, 0.07);
+    max-width: 300px;
+    padding: 1rem;
+}
+
+.user-tile img {
+    border-radius: .2rem;
+    width: 100%;
+}
+
+.user-tile .title {
+    color: #0066FF;
+}
+
+.user-tile .detail {
+    color: #aaa;
+    font-size: 80%;
+}
+
+.user-tile div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

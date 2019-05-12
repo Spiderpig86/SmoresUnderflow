@@ -1,0 +1,54 @@
+{
+  "name": "su-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/react-router-dom": "^4.3.1",
+    "axios": "^0.18.0",
+    "http-proxy-middleware": "^0.19.1",
+    "js-cookie": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "react": "^16.8.4",
+    "react-cookie": "^3.1.1",
+    "react-dom": "^16.8.4",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^5.0.0",
+    "react-scripts-ts": "^4.0.8",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/js-cookie": "^2.2.1",
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/node": "^11.11.4",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
+    "@types/react-redux": "^7.0.5",
+    "bootstrap": "^4.3.1",
+    "react-bootstrap": "^1.0.0-beta.6",
+    "typescript": "^3.3.4000"
+  },
+  "homepage": "http://smores.cse356.compas.cs.stonybrook.edu",
+  "proxy": {
+    "/api/*": {
+      "target": "http://130.245.171.72",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

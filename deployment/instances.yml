@@ -1,0 +1,117 @@
+---
+- name: cloud instance setup
+  hosts: instances
+  gather_facts: yes
+
+  vars:
+    mongo_repo: http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0
+    node_ver: '10.15.3'
+
+  tasks:
+
+    - name: Install nginx
+      become: yes
+      apt:
+        name: nginx
+        state: latest
+        update_cache: true
+    
+    # - name: Install Java
+    #   become: yes
+    #   apt:
+    #     name: openjdk-8-jre-headless
+    #     state: latest
+
+    # - name: Install MongoDb
+    #   become: yes
+    #   apt_key: >
+    #     keyserver=hkp://keyserver.ubuntu.com:80
+    #     id=9DA31620334BD75D9DCB49F368818C72E52529D4
+    #     state=present
+
+    # - name: Add mongo sources list
+    #   become: yes
+    #   lineinfile: >
+    #     line="deb {{ mongo_repo }} multiverse"
+    #     dest=/etc/apt/sources.list.d/mongodb.list
+    #     state=present
+    #     create=yes
+
+    # - name: Install mongo
+    #   become: yes
+    #   apt: name=mongodb-org state=latest update_cache=yes
+    #   notify:
+    #     - update apt
+
+    # - name: Start Mongo
+    #   service:
+    #       name: mongodb
+    #       state: started
+
+    - name: Install Postfix
+      become: yes
+      apt:
+        name: postfix
+        state: latest
+        update_cache: yes
+      notify:
+        - restart nginx
+
+    # - name: Install the gpg key for nodejs LTS
+    #   apt_key:
+    #     url: "https://deb.nodesource.com/gpgkey/nodesource.gpg.key"
+    #     state: present
+
+    # - name: Install the nodejs LTS repos
+    #   apt_repository:
+    #     repo: "deb https://deb.nodesource.com/node_{{ node_ver }}.x {{ ansible_distribution_release }} main"
+    #     state: present
+    #     update_cache: yes
+
+    - name: Install the nodejs
+      become: yes
+      apt:
+        name: nodejs
+        state: present
+
+    - name: Install npm
+      become: yes
+      apt:
+        name: npm
+        update_cache: yes
+        state: latest
+
+    - name: Install pm2
+      become: yes
+      npm: name=pm2 global=yes production=yes
+
+    - name: Install Erlang
+      become: yes
+      apt: name=erlang update_cache=yes state=latest
+      
+    - name: Install rabbitmq
+      become: yes
+      apt: name=rabbitmq-server update_cache=yes state=latest
+
+    # - name: Install Redis
+    #   apt: pkg=redis-server state=latest
+    #   become: yes
+
+    # - name: Ensure Redis is started
+    #   service: name=redis-server state=started enabled=yes
+    #   become: yes
+
+  handlers:
+    - name: restart nginx
+      become: yes
+      service:
+        name: nginx
+        state: restarted
+
+    - name: update apt
+      become: yes
+      apt: update_cache=yes
+      
+    - name: Redis Restart
+      service: name=redis-server state=restarted enabled=yes
+      become: yes

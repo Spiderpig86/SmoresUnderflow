@@ -1,0 +1,17 @@
+.Navbar {
+    border-top: 3px solid #f48024;
+    position: sticky;
+    z-index: 999;
+}
+
+.Navbar.scroll {
+    border-bottom: 1px solid #e1e1e1;
+    box-shadow: 0 0.2rem 1.25rem 0 rgba(27, 30, 36, 0.07);
+    top: 0;
+    width: 100%;
+}
+
+.logo {
+    margin-right: 0.5rem;
+    max-height: 30px;
+}

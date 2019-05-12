@@ -1,0 +1,1 @@
+rm /home/ubuntu/smores-underflow/media/*.jpeg

@@ -1,0 +1,1 @@
+cp const.ts current/su-questions/src/utils/const.ts && cp const.ts current/qu-questions/src/utils/const.ts && cp const.ts current/qu-delete-questions/src/utils/const.ts && cp const.ts current/qu-answers/src/utils/const.ts
