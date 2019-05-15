@@ -54,4 +54,4 @@
 ![Search Filter](https://github.com/Spiderpig86/SmoresUnderflow/blob/master/images/smores6.PNG)
 
 ## Contributors
-* Built by [@drivatives](https://gitlab.com/derivatives_) and yours truly.
+* Built by [@derivatives](https://gitlab.com/derivatives_)(Ngan Nguyen) and yours truly.
