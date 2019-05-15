@@ -28,3 +28,4 @@
 
 - import_playbook: instances.yml
 - import_playbook: cache.yml
+- import_playbook: search.yml

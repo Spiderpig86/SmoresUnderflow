@@ -1,0 +1,54 @@
+---
+- name: Elk Setup
+  hosts: search
+  gather_facts: yes
+
+  tasks:
+
+    - name: Install Java
+      become: yes
+      apt:
+        name: openjdk-8-jre-headless
+        state: latest
+
+    - name: Install gpg key for Elastic
+      apt_key:
+        url: "https://artifacts.elastic.co/GPG-KEY-elasticsearch"
+        state: present
+
+    # Add Elastic source for 6.x?
+
+    - name: Install Elastic
+      become: yes
+      apt:
+        name: elasticsearch
+        state: latest
+
+    - name: Install Kibana
+      become: yes
+      apt:
+        name: kibana
+        state: latest
+
+    - name: Install nginx (for firewall rules)
+      become: yes
+      apt:
+        name: nginx
+        state: latest
+        update_cache: true
+      notify:
+        - Start Elastic
+        - Start Kibana
+
+  handlers:
+    - name: Start Elastic
+      service:
+        name: elasticsearch
+        state: started
+        enabled: yes
+
+    - name: Start Kibana
+      service:
+        name: kibana
+        state: started
+        enabled: yes
