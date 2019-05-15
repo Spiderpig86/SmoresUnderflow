@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/Spiderpig86/SmoresUnderflow/blob/master/su-frontend/public/assets/logo.png" width="125"></p>
+<p align="center"><img src="https://github.com/Spiderpig86/SmoresUnderflow/blob/master/su-frontend/public/assets/logo.png" width="75"></p>
 <h1 align=center>SmoresUnderflow</h1>
 <br>
 <h5 align=center>A scalable StackOverflow clone powered by Koa</a>.</h5>
@@ -21,6 +21,9 @@
 * :rocket: [Nginx](https://www.nginx.com/) - high performance load balancer.
 * :rabbit: [RabbitMQ](https://www.rabbitmq.com/) - open source message broker.
 * :sparkles: [PM2](http://pm2.keymetrics.io/) - Node.js process manager.
+
+## Performance
+* Was able to handle **1000 users** sending a total of **200,000 requests**.
 
 ## Deployment
 * In general, each instance you deploy would consist of all the microservices that are included in the project, which are the folders prefixed with `su-` and `qu-`.
