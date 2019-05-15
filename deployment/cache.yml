@@ -2,3 +2,18 @@
 - name: Redis setup
   hosts: cache
   gather_facts: yes
+
+  tasks:
+    
+    - name: Install Redis
+      become: yes
+      apt:
+        name: redis-server
+        state: latest
+        update_cache: true
+
+    - name: Ensure Redis started
+      service:
+        name: redis-server
+        state: started
+        enabled: yes
