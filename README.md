@@ -1,7 +1,7 @@
-<p align="center"><img src="https://github.com/Spiderpig86/SmoresUnderflow/blob/master/su-frontend/public/assets/logo.png" width="200"></p>
+<p align="center"><img src="https://github.com/Spiderpig86/SmoresUnderflow/blob/master/su-frontend/public/assets/logo.png" width="125"></p>
 <h1 align=center>SmoresUnderflow</h1>
 <br>
-<h5 align=center>A scalable StackOverflow clone powered by Koa.</a>.</h5>
+<h5 align=center>A scalable StackOverflow clone powered by Koa</a>.</h5>
 
 ## Features
 * This is the gist of what it can do:
