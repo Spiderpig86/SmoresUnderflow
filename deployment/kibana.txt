@@ -1,0 +1,323 @@
+GET _nodes/thread_pool
+
+PUT smores
+
+GET smores/question/_mapping
+
+PUT smores/_mapping/question
+{
+  "question" : {
+        "properties" : {
+          "acceptedAnswer" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "body" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "media" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            },
+            "fielddata" : true
+          },
+          "score" : {
+            "type" : "long"
+          },
+          "tags" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "timestamp" : {
+            "type" : "double"
+          },
+          "title" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "upvoteIds" : {
+            "type" : "text",
+            "fields" : {
+              "keyword" : {
+                "type" : "keyword",
+                "ignore_above" : 256
+              }
+            }
+          },
+          "user" : {
+            "properties" : {
+              "_id" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              },
+              "email" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              },
+              "reputation" : {
+                "type" : "long"
+              },
+              "username" : {
+                "type" : "text",
+                "fields" : {
+                  "keyword" : {
+                    "type" : "keyword",
+                    "ignore_above" : 256
+                  }
+                }
+              }
+            }
+          },
+          "viewCount" : {
+            "type" : "long"
+          }
+        }
+      }
+}
+
+GET smores/question/_search
+{
+  "size" : 50,
+  "query": {
+    "bool": {
+      "filter": [
+      ],
+      "should": [
+        {
+          "match": {
+            "title": "test"
+          }
+        },
+        {
+          "match": {
+            "body": "wef"
+          }
+        }
+      ]
+    }
+  }
+}
+
+GET smores/question/_search
+{
+    "sort": [
+      
+    ],
+   "size":1000,
+   "query":{
+      "bool":{
+         "filter":{
+            "bool":{
+               "must":[
+               ],
+               "should":[
+               ]
+            }
+         }
+      }
+   }
+}
+
+GET smores/question/_search
+{
+   "size":50,
+   "query":{
+      "bool":{
+        "must": [
+          
+          {
+            "term": {
+              "tag.keywords": "asp.net"
+            }
+          }
+        ],
+        "minimum_should_match_script": {
+            "source": "params.num_terms"
+          },
+         "filter":{
+            "bool":{
+               "must":[
+               ],
+               "should":[
+               ]
+            }
+         }
+      }
+   },
+    "sort": [
+      {
+        "timestamp": "desc"
+      }
+    ]
+}
+
+GET smores/question/_search
+{
+   "size":5,
+   "query":{
+      "bool":{
+        "must": [
+          
+          {
+            "term": {
+              "tags.keyword": "asp.net-mvc"
+            }
+          },
+          {
+            "term": {
+              "tags.keyword": "multilingual"
+            }
+          }
+        ],
+         "filter":{
+            "bool":{
+               "must":[
+               ],
+               "should":[
+               ]
+            }
+         }
+      }
+   },
+    "sort": [
+      {
+        "timestamp": "desc"
+      }
+    ]
+}
+
+GET smores/question/_search
+{
+   "size":5,
+   "query":{
+      
+      "terms_set": {
+        "tags": {
+          "terms": ["asp.net", "multilingual"],
+          "minimum_should_match_script": {
+            "source": "params.num_terms"
+          }
+        }
+      }
+   },
+    "sort": [
+      {
+        "timestamp": "desc"
+      }
+    ]
+}
+
+GET smores/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+POST smores/_delete_by_query
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+DELETE smores
+
+GET _nodes/thread_pool
+
+POST smores/question/fd513ea51a2d8bbd88819151864f5869d6391784/_update
+{
+  "doc": {
+    "title" : "Testing2",
+    "body" : """
+I am attempting to render a spinner after an onClick event, so the loading icon will show while another function is running (in this case, my glitcher() function). My render function is below. The onClick calls a handler which sequences setting of state, also shown below.
+
+Right now, onClick calls handleGlitch, and the state glitchLoading is properly set true (tested with the console.log call within the conditional) but the spinner doesn't render.
+
+onClick handler handleGlitch():
+""",
+    "tags" : [
+      "react"
+    ],
+    "answers" : [ ],
+    "user" : {
+      "_id" : "test",
+      "username" : "test",
+      "email" : "test@test.com",
+      "reputation" : 1
+    },
+    "acceptedAnswer" : null,
+    "timestamp" : 1.556560398022E9,
+    "media" : [ ],
+    "viewCount" : 0,
+    "viewedIds" : [ ],
+    "upvoteIds" : [ ],
+    "downvoteIds" : [ ]
+  }
+}
+
+POST smores/question/0a7c342f20edca79eedd264e927cc84680783a81/_update
+{
+  "doc": {
+    "title" : "Testing2",
+    "body" : """
+I am attempting to render a spinner after an onClick event, so the loading icon will show while another function is running (in this case, my glitcher() function). My render function is below. The onClick calls a handler which sequences setting of state, also shown below.
+
+Right now, onClick calls handleGlitch, and the state glitchLoading is properly set true (tested with the console.log call within the conditional) but the spinner doesn't render.
+
+onClick handler handleGlitch():
+""",
+    "tags" : [
+      "react"
+    ],
+    "answers" : [ ],
+    "user" : {
+      "_id" : "test",
+      "username" : "test",
+      "email" : "test@test.com",
+      "reputation" : 1
+    },
+    "acceptedAnswer" : "accepted",
+    "timestamp" : 1.556560398022E9,
+    "media" : [ "media" ],
+    "viewCount" : 0,
+    "viewedIds" : [ ],
+    "upvoteIds" : [ ],
+    "downvoteIds" : [ ]
+  }
+}
