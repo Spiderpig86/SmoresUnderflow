@@ -1,0 +1,15 @@
+export const CACHE_TIMEOUT = 30;
+export const CACHE_MEDIA_TIMEOUT = 120;
+export const REDIS_HOST = '130.245.168.122';
+export const REDIS_PORT = 6379;
+export const MEDIA_REDIS_HOST = '130.245.171.83';
+export const MONGO_HOST = 'mongodb://localhost:27017/underflow';
+export const ERROR_CODE = 400;
+export const ENTRY_POINT = 'http://130.245.171.199';
+export const ELASTIC_SEARCH_HOST = 'http://130.245.171.81:9200';
+export const ELASTIC_INDEX = 'smores';
+export const ELASTIC_TYPE = 'question';
+export const EXCHANGE = 'question';
+export const ANSWER_KEY = 'answer';
+export const ADD_KEY = 'add';
+export const DELETE_KEY = 'delete';

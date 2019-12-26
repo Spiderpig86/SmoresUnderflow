@@ -36,6 +36,3 @@ Thumbs.db
 
 # Ignore built ts files
 dist/**/*
-
-# ignore const file
-# src/utils/const.ts
