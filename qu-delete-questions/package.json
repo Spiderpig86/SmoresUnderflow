@@ -35,6 +35,6 @@
     "elasticsearch": "^15.4.1",
     "ioredis": "^4.9.3",
     "mongodb": "^3.2.3",
-    "node-fetch": "^2.5.0"
+    "node-fetch": "^2.6.1"
   }
 }
