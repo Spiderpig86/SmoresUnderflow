@@ -47,6 +47,12 @@
 ### Searching
 * The ELK stack can run on a single machine. Ensure that there is at least **4GB** of RAM so the write queue limit can be raised in **Elastic Search** to handle more requests.
 
+## Architecture
+
+Not the best way to do it, but worked nonetheless.
+
+![Architecture](https://github.com/Spiderpig86/SmoresUnderflow/blob/master/images/Smores%20Underflow%20Architecture.png)
+
 ## How it looks/works
 ![Smores Demo](https://github.com/Spiderpig86/SmoresUnderflow/blob/master/images/smores.gif)
 ![Question Page](https://github.com/Spiderpig86/SmoresUnderflow/blob/master/images/smores1.PNG)
