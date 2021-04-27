@@ -47,6 +47,6 @@
     "ioredis": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "nodemailer": "^5.1.1",
-    "redis": "^2.8.0"
+    "redis": "^3.1.1"
   }
 }
