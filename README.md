@@ -23,7 +23,7 @@
 * :sparkles: [PM2](http://pm2.keymetrics.io/) - Node.js process manager.
 
 ## Performance
-* Was able to handle **1000 users** sending a total of **200,000 requests**.
+* Was able to handle **1000 concurrent users** sending a total of **200,000 requests** within 10 minutes (averaging ~333 QPS), maintaining a 95th percentile tail latency of 200ms.
 
 ## Deployment
 * In general, each instance you deploy would consist of all the microservices that are included in the project, which are the folders prefixed with `su-` and `qu-`.
