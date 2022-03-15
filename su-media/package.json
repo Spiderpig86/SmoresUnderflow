@@ -52,6 +52,6 @@
     "jsonwebtoken": "^8.5.1",
     "koa-body": "^4.1.0",
     "koa-multer": "^1.0.2",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }
