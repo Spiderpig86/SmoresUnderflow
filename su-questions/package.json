@@ -48,6 +48,6 @@
     "elasticsearch": "^15.4.1",
     "ioredis": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.7"
   }
 }
