@@ -45,7 +45,7 @@
     "@types/redis": "^2.8.12",
     "bcryptjs": "^2.4.3",
     "ioredis": "^4.9.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "nodemailer": "^5.1.1",
     "redis": "^3.1.1"
   }
