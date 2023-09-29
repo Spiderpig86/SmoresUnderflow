@@ -34,7 +34,7 @@
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "mongodb": "^3.1.13",
-    "nodemon": "^1.18.10",
+    "nodemon": "^2.0.20",
     "pg": "^7.8.2",
     "reflect-metadata": "^0.1.13",
     "sendmail": "^1.4.1",
