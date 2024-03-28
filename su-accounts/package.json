@@ -34,7 +34,7 @@
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
     "mongodb": "^3.1.13",
-    "nodemon": "^1.18.10",
+    "nodemon": "^2.0.20",
     "pg": "^7.8.2",
     "reflect-metadata": "^0.1.13",
     "sendmail": "^1.4.1",
@@ -47,7 +47,7 @@
   "dependencies": {
     "@types/amqplib": "^0.5.11",
     "@types/sendmail": "^1.4.0",
-    "amqplib": "^0.5.3",
+    "amqplib": "^0.10.3",
     "bcryptjs": "^2.4.3",
     "elasticsearch": "^16.0.0",
     "jsonwebtoken": "^8.5.1",
