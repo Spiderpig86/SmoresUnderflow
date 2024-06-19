@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@koa/cors": "^3.0.0",
+    "@koa/cors": "^5.0.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/elasticsearch": "^5.0.32",
     "@types/http-status-codes": "^1.2.0",
