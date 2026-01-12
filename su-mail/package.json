@@ -31,7 +31,7 @@
   "dependencies": {
     "@types/sendmail": "^1.4.0",
     "amqplib": "^0.10.3",
-    "nodemailer": "^6.4.16",
+    "nodemailer": "^7.0.11",
     "sendmail": "^1.4.1"
   }
 }
