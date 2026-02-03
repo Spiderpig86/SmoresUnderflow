@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@types/elasticsearch": "^5.0.32",
-    "amqplib": "^0.5.3",
+    "amqplib": "^0.10.9",
     "elasticsearch": "^15.4.1",
     "mongodb": "^3.2.3",
     "node-fetch": "^2.6.7"
