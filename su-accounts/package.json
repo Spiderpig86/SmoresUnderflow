@@ -47,7 +47,7 @@
   "dependencies": {
     "@types/amqplib": "^0.5.11",
     "@types/sendmail": "^1.4.0",
-    "amqplib": "^0.5.3",
+    "amqplib": "^0.10.9",
     "bcryptjs": "^2.4.3",
     "elasticsearch": "^16.0.0",
     "jsonwebtoken": "^8.5.1",
